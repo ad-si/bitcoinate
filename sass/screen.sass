@@ -1,0 +1,139 @@
+@import "compass"
+
+*
+	margin: 0
+	padding: 0
+	border: 0
+	font-size: 100%
+
+body
+	font: 14px / 1.333 sans-serif
+	color: #444
+	background: #eee
+
+a
+	color: #980905
+	text-decoration: none
+	&:hover, &:focus, &:active
+		text-decoration: underline
+
+h1
+	display: inline-block
+	margin: 0 0 20px 0
+	font-size: 40px
+	color: #fff
+	border: 1px solid rgb(193, 108, 7)
+	border-top: none
+	+border-bottom-radius(5px)
+	line-height: 1
+	+background-image(url("../img/bitcoinate36.png"), linear-gradient(rgb(247, 147, 26), rgb(193, 108, 7)))
+	background-position: 12px 10px, 50%
+	background-repeat: no-repeat
+	padding: 8px 12px 8px 46px
+	text-shadow: 0 -2px 0px rgba(0, 0, 0, 0.5)
+	position: absolute
+	top: 0px
+	cursor: pointer
+	&:active
+		box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5)
+	&:hover,
+	&:focus
+		+background-image(url("../img/bitcoinate36.png"), linear-gradient(rgb(248, 158, 52), rgb(232, 130, 8)))
+h2
+	margin: 0 0 8px
+	font-size: 22px
+h3
+	margin: 0 0 5px
+	font-size: 16px
+
+p
+	margin: 0 0 10px
+
+em
+	font-style: italic
+
+table
+	border-collapse: separate
+	border-spacing: 0
+	margin: 0
+	vertical-align: middle
+th
+	font-weight: bold
+	padding: 5px 25px 5px 5px
+	text-align: left
+	vertical-align: middle
+td
+	padding: 5px 25px 5px 5px
+	text-align: left
+	vertical-align: middle
+
+textarea
+	width: 580px
+	height: 20px
+	padding: 10px
+	margin: 0 0 25px 0
+	white-space: nowrap
+	font-family: monospace, sans-serif
+	font-size: 1em
+	color: rgb(150,150,150)
+	display: block
+	border: 1px solid rgb(220, 220, 220)
+	border-radius: 5px
+	overflow-x: scroll
+
+/* ------------------------------------------ TEMPLATE -----------------------------------*/
+
+.container
+	position: relative
+	overflow: hidden
+	width: 600px
+	padding: 100px 60px 40px 60px
+	border: 1px solid #ccc
+	border-radius: 10px
+	margin: 40px auto 20px
+	background: #fff
+	+box-shadow(0 0 15px rgba(0, 0, 0, 0.1))
+	pre, .prettyprint
+		padding: 0
+		border: 0
+		margin: 0 0 20px
+		font-size: 13px
+		background: #fff
+
+.header
+	padding-right: 80px
+
+section
+	margin: 40px 0 20px
+	
+form
+	margin-bottom: 20px			
+
+	input
+		width: 240px
+		border: 1px solid rgb(220, 220, 220)
+		padding: 5px
+		border-radius: 5px
+		font-size: 12px
+
+	select
+		border: 1px solid rgb(220, 220, 220)
+		background-color: white
+		margin-right: 30px
+
+.sharebuttons
+	margin: 20px 0 30px 0
+	padding-left: 40px
+	iframe, div
+		display: inline-block
+		vertical-align: middle !important
+		margin-left: 60px
+
+
+.footer
+	margin: 20px 0 50px
+	font-size: 11px
+	color: #666
+	text-align: center
+	a
+		color: #666

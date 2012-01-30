@@ -1,0 +1,48 @@
+@import compass
+
+.bitcoinate,
+	font-weight: 900
+	font-family: "Arial", sans-serif
+	background-repeat: no-repeat, repeat-x
+	color: #fff
+	text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.5)
+	border: 1px solid rgb(193, 108, 7)
+	margin: 0px
+	line-height: 1
+	
+.bitcoinate[data-size="small"]
+	+background-image(url("../img/bitcoinate14.png"), linear-gradient(rgb(247, 147, 26), rgb(193, 108, 7)))
+	background-position: 4px 2px, 50%
+	padding: 3px 4px 3px 17px
+	font-size: 12px
+	border-radius: 2px
+	&:active
+		box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5)
+	&:hover,
+	&:focus
+		+background-image(url("../img/bitcoinate14.png"), linear-gradient(rgb(248, 158, 52), rgb(232, 130, 8)))
+	
+.bitcoinate[data-size='medium']
+	+background-image(url("../img/bitcoinate22.png"), linear-gradient(rgb(247, 147, 26), rgb(193, 108, 7)))
+	background-position: 8px 4px, 50%
+	padding: 6px 8px 6px 28px
+	font-size: 18px
+	border-radius: 4px
+	&:active
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5)
+	&:hover,
+	&:focus
+		+background-image(url("../img/bitcoinate22.png"), linear-gradient(rgb(248, 158, 52), rgb(232, 130, 8)))
+			
+.bitcoinate[data-size="large"]
+	+background-image(url("../img/bitcoinate36.png"), linear-gradient(rgb(247, 147, 26), rgb(193, 108, 7)))
+	background-position: 12px 6px, 50%
+	padding: 8px 12px 8px 46px
+	font-size: 32px
+	border-radius: 5px
+	text-shadow: 0 -2px 0px rgba(0, 0, 0, 0.5)
+	&:active
+		box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5)
+	&:hover,
+	&:focus
+		+background-image(url("../img/bitcoinate36.png"), linear-gradient(rgb(248, 158, 52), rgb(232, 130, 8)))
