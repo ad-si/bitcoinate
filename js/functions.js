@@ -1,23 +1,32 @@
 (function(){
+
+	function $(s){
+		return document.getElementById(s);
+	}
 	
-	document.getElementById("logo").addEventListener('click', function(){
+	$("logo").addEventListener('click', function(){
 		window.prompt('Please donate bitcoins to:', '1LFk8i74MTBEKfViAfvKsbX4mG2iFfRiBF');
 	}, false);
 	
 	
-	document.getElementById("buttonSize").addEventListener('change', function(){
+	$("buttonSize").addEventListener('change', function(){
 		update();
 	},false);
-	document.getElementById("donateAddress").addEventListener('input', function(){
+	$("donateAddress").addEventListener('input', function(){
 		update();
 	},false);
 	
 	
 	function update(){
-		var d = document.getElementById("htmlCode");
-		var buttonSize = document.getElementById("buttonSize").value;
- 		var donateAddress = document.getElementById("donateAddress").value;
-		d.innerHTML = '<button class="bitcoinate" data-size="'+ buttonSize +'" data-address="'+ donateAddress +'" >bitcoinate<button/>this.value';
+		var buttonSize = $("buttonSize").value;
+ 		
+ 		if($("donateAddress").value == ""){
+ 			var donateAddress = "1LFk8i74MTBEKfViAfvKsbX4mG2iFfRiBF"
+ 		}else{
+ 			var donateAddress = $("donateAddress").value;
+ 		}
+ 		
+		$("htmlCode").innerHTML = '<button class="bitcoinate" data-size="'+ buttonSize +'" data-address="'+ donateAddress +'" >bitcoinate<button/>this.value';
 	}
 	
 	var areas = document.getElementsByTagName("textarea");
