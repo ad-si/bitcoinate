@@ -22,7 +22,7 @@
 	
 	var areas = document.getElementsByTagName("textarea");
 	
-	for(i in areas){
+	for(var i = 0; i < areas.length; i++){
 		areas[i].addEventListener('click', function(){
 			this.select();
 		}, false);
