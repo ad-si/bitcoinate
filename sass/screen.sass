@@ -74,14 +74,14 @@ textarea
 	height: 20px
 	padding: 10px
 	margin: 0 0 25px 0
-	white-space: nowrap
 	font-family: monospace, sans-serif
-	font-size: 1em
 	color: rgb(150,150,150)
 	display: block
 	border: 1px solid rgb(220, 220, 220)
 	border-radius: 5px
-	overflow-x: scroll
+	overflow: hidden
+	resize: both
+	white-space: nowrap
 
 //------------------------------------------ TEMPLATE -----------------------------------
 
@@ -107,16 +107,43 @@ textarea
 
 section
 	margin: 40px 0 20px
-	
-form
-	margin-bottom: 20px			
 
-	input
-		width: 240px
+#showcase
+	text-align: center
+	height: 80px
+	width: 100%
+	padding-top: 40px
+
+
+form
+	margin-bottom: 20px
+
+	fieldset
+		margin-bottom: 20px
+
+	label
+		font-weight: 900
+		display: inline-block
+
+	#optional,
+	fieldset:nth-last-of-type(2)
+		label
+			width: 160px
+			text-align: right
+			margin: 0 20px 10px 0
+
+	#optional
+		display: none
+
+	input[type=text],
+	input[type=number]
 		border: 1px solid rgb(220, 220, 220)
 		padding: 5px
 		border-radius: 5px
 		font-size: 12px
+
+	input[type=text]
+		width: 200px
 
 	select
 		border: 1px solid rgb(220, 220, 220)
