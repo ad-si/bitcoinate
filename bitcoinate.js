@@ -1,4 +1,4 @@
-// bitcoinate by Adrian Sieber
+/*@preserve bitcoinate by Adrian Sieber*/
 
 (function (window, document) {
 
