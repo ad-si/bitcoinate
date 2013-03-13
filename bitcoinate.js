@@ -14,7 +14,7 @@
 
 	for (i = 0; i < buttons.length; i++) {
 		buttons[i].title = sentence + buttons[i].dataset.address;
-		buttons[i].innerHTML = '<img src="https://raw.github.com/adius/bitcoinate/v0.1.1/img/bitcoinate' + buttons[i].dataset.size + '.png" alt="B" />bitcoinate';
+		buttons[i].innerHTML = '<img src="https://raw.github.com/adius/bitcoinate/v0.1.2/img/bitcoinate' + buttons[i].dataset.size + '.png" alt="B" />bitcoinate';
 
 		buttons[i].addEventListener('click', function () {
 			d = this.dataset;
