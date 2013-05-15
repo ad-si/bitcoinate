@@ -11,6 +11,7 @@ function buildMinifiedCss(string) {
 		.set('compress', true)
 		.use(nib())
 		.import('nib')
+		.define('url', stylus.url())
 		.render(function(err, css) {
 			if(err) throw err
 			cssString = css.replace(/\n/g, '')
