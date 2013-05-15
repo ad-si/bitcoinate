@@ -10,25 +10,29 @@
 
 	style.type = 'text/css'
 	style.innerHTML = '{{ CSS }}'
-	document.body.appendChild(style)
+	document.getElementsByTagName('head')[0].appendChild(style)
 
-	for (i = 0; i < buttons.length; i++) {
+	document.addEventListener('DOMContentLoaded', function(){
 
-		buttons[i].title = sentence + buttons[i].dataset.address
+		for (i = 0; i < buttons.length; i++) {
 
-		buttons[i].innerHTML = '<span></span>bitcoinate'
+			buttons[i].title = sentence + buttons[i].dataset.address
 
-		buttons[i].addEventListener('click', function () {
-			data = this.dataset
+			buttons[i].innerHTML = '<span></span>bitcoinate'
 
-			if(data.type == 'URI')
-				window.location.href = 'bitcoin:' + data.address
-					+ '?amount=' + data.address
-					+ '&label=' + data.label
-			else
-				window.prompt(sentence, data.address)
+			buttons[i].addEventListener('click', function () {
+				data = this.dataset
 
-		}, false)
-	}
+				if(data.type == 'URI')
+					window.location.href = 'bitcoin:' + data.address
+						+ '?amount=' + data.address
+						+ '&label=' + data.label
+				else
+					window.prompt(sentence, data.address)
+
+			}, false)
+		}
+
+	}, false)
 
 }(window, document)
