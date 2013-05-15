@@ -1,4 +1,4 @@
-/*bitcoinate by Adrian Sieber (adriansieber.com)*/
+//bitcoinate {{ VERSION }} by Adrian Sieber (adriansieber.com)
 
 !function (window, document) {
 

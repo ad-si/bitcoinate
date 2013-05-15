@@ -3,43 +3,88 @@ var fs = require('fs'),
 	stylus = require('stylus'),
 	nib = require('nib')
 
+function buildMinifiedCss(string) {
 
-task('default', ['minify'], function() {
-})
+	var cssString
 
-
-task('minify', [], function() {
-
-	var ast,
-		cssString,
-		compressor = uglify.Compressor(),
-		jsString = fs.readFileSync('src/bitcoinate.js').toString(),
-		stylString = fs.readFileSync('src/bitcoinate.styl').toString(),
-		file = fs.openSync('bitcoinate.min.js', 'w+')
-
-
-	stylus(stylString)
+	stylus(string)
 		.set('compress', true)
 		.use(nib())
 		.import('nib')
 		.render(function(err, css) {
 			if(err) throw err
 			cssString = css.replace(/\n/g, '')
-			console.log('CSS compilation succeeded')
 		})
 
+	return cssString
+}
 
-	jsString = jsString.replace('{{ CSS }}', cssString)
+function buildMinifiedJs(string) {
 
+	var ast,
+		compressor = uglify.Compressor()
 
-	ast = uglify.parse(jsString)
+	ast = uglify.parse(string)
 	ast.figure_out_scope()
 	ast.transform(compressor)
 	ast.figure_out_scope()
 	ast.compute_char_frequency()
 	ast.mangle_names()
 
-	fs.writeSync(file, ast.print_to_string({"comments": /bitcoinate/ }))
+	return ast.print_to_string({"comments": /bitcoinate/ })
+}
 
-	console.log('Minification succeeded')
+
+desc('Default build process')
+task('default', ['bitcoinate.min.js'], function() {
+})
+
+
+desc('Compile bitcoinate.min.js')
+task('bitcoinate.min.js', [], function() {
+
+	var cssString,
+		jsString = fs.readFileSync('src/bitcoinate.js').toString(),
+		stylString = fs.readFileSync('src/bitcoinate.styl').toString(),
+		file = fs.openSync('bitcoinate.min.js', 'w+'),
+		version
+
+	version = JSON.parse(fs.readFileSync('package.json')).version
+
+	cssString = buildMinifiedCss(stylString)
+
+	jsString = buildMinifiedJs(
+		jsString
+			.replace('{{ CSS }}', cssString)
+			.replace('{{ VERSION }}', version)
+	)
+
+	fs.writeSync(file, jsString)
+
+	console.log('Building ' + this.name + ' succeeded')
+})
+
+
+desc('Compile bitcoinate.min.css')
+task('bitcoinate.min.css', [], function() {
+
+	var stylString = fs.readFileSync('src/bitcoinate.styl').toString(),
+		file = fs.openSync('bitcoinate.min.css', 'w+')
+
+	fs.writeSync(file, buildMinifiedCss(stylString))
+
+	console.log('Building ' + this.name + ' succeeded')
+})
+
+
+desc('Remove compiled files')
+task('clean', [], function() {
+
+	fs.unlink('bitcoinate.min.js', function(err) {
+		if(err) console.log(err)
+	})
+
+	fs.unlink('bitcoinate.min.css', function(err) {
+		if(err) console.log(err)
+	})
 })
