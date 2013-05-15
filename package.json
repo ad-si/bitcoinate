@@ -1,6 +1,6 @@
 {
 	"name": "bitcoinate",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"devDependencies": {
 		"nib": "~0.9.1",
 		"stylus": "~0.32.1",
