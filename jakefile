@@ -1,0 +1,45 @@
+var fs = require('fs'),
+	uglify = require('uglify-js'),
+	stylus = require('stylus'),
+	nib = require('nib')
+
+
+task('default', ['minify'], function() {
+})
+
+
+task('minify', [], function() {
+
+	var ast,
+		cssString,
+		compressor = uglify.Compressor(),
+		jsString = fs.readFileSync('src/bitcoinate.js').toString(),
+		stylString = fs.readFileSync('src/bitcoinate.styl').toString(),
+		file = fs.openSync('bitcoinate.min.js', 'w+')
+
+
+	stylus(stylString)
+		.set('compress', true)
+		.use(nib())
+		.import('nib')
+		.render(function(err, css) {
+			if(err) throw err
+			cssString = css.replace(/\n/g, '')
+			console.log('CSS compilation succeeded')
+		})
+
+
+	jsString = jsString.replace('{{ CSS }}', cssString)
+
+
+	ast = uglify.parse(jsString)
+	ast.figure_out_scope()
+	ast.transform(compressor)
+	ast.figure_out_scope()
+	ast.compute_char_frequency()
+	ast.mangle_names()
+
+	fs.writeSync(file, ast.print_to_string({"comments": /bitcoinate/ }))
+
+	console.log('Minification succeeded')
+})

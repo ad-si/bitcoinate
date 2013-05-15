@@ -1,0 +1,8 @@
+{
+	"name": "bitcoinate",
+	"dependencies": {
+		"nib": "~0.9.1",
+		"stylus": "~0.32.1",
+		"uglify-js": "~2.3.2"
+	}
+}
