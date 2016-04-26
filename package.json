@@ -1,9 +1,18 @@
 {
-	"name": "bitcoinate",
-	"version": "0.2.1",
-	"devDependencies": {
-		"nib": "~0.9.1",
-		"stylus": "~0.32.1",
-		"uglify-js": "~2.3.2"
-	}
+  "name": "bitcoinate",
+  "version": "0.2.1",
+  "eslintConfig": {
+    "root": true,
+    "extends": "./node_modules/javascript-styleguide/.eslintrc.yml",
+    "rules": {
+      "comma-dangle": ["error", "always"]
+    }
+  },
+  "devDependencies": {
+    "eslint": "^2.8.0",
+    "javascript-styleguide": "^0.2.0",
+    "nib": "~0.9.1",
+    "stylus": "~0.32.1",
+    "uglify-js": "~2.3.2"
+  }
 }
