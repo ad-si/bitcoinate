@@ -1,6 +1,10 @@
 {
   "name": "bitcoinate",
   "version": "0.2.1",
+  "scripts": {
+    "lint": "eslint . --ignore-pattern *.min.js",
+    "prepublish": "npm run lint"
+  },
   "eslintConfig": {
     "root": true,
     "extends": "./node_modules/javascript-styleguide/.eslintrc.yml",
