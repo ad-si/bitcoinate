@@ -15,8 +15,8 @@
   "devDependencies": {
     "eslint": "^2.8.0",
     "javascript-styleguide": "^0.2.0",
-    "nib": "~0.9.1",
-    "stylus": "~0.32.1",
-    "uglify-js": "~2.3.2"
+    "nib": "~1.1.0",
+    "stylus": "~0.54.2",
+    "uglify-js": "~2.6.2"
   }
 }
