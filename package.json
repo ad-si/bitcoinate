@@ -1,6 +1,6 @@
 {
   "name": "bitcoinate",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "scripts": {
     "test": "npm run lint && npm run build && echo 'Open ./tests/index.html'",
     "lint": "eslint --ignore-pattern *.min.js .",
