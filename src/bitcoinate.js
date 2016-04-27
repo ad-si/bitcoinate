@@ -1,7 +1,6 @@
 //bitcoinate {{ VERSION }} by Adrian Sieber (adriansieber.com)
 
-!function (window, document) {
-
+((window, document) => {
   const style = document.createElement('style')
 
   style.type = 'text/css'
@@ -15,7 +14,6 @@
 
     const buttons = document.getElementsByClassName('bitcoinate')
     const sentence = 'Please donate bitcoins to: '
-    let data
 
     for (let i = 0; i < buttons.length; i++) {
 
@@ -24,19 +22,26 @@
       buttons[i].innerHTML = '<span></span>bitcoinate'
 
       buttons[i].addEventListener('click', function () {
-        data = this.dataset
+        const data = this.dataset
 
         if (data.type == 'URI') {
-          window.location.href = 'bitcoin:' + data.address
-            + '?amount=' + data.address
-            + '&label=' + data.label
+          const bitcoinURI = `bitcoin:${data.address}?` +
+            Object.keys(data)
+              .map(key => {
+                if (['address', 'size', 'type'].indexOf(key) === -1) {
+                  return key + '=' + data[key]
+                }
+              })
+              .filter(parameter => Boolean(parameter))
+              .join('&')
+
+          window.location.href = encodeURI(bitcoinURI)
         }
         else {
           window.prompt(sentence, data.address)
         }
       }, false)
     }
-
   }, false)
 
-}(window, document)
+})(window, document)

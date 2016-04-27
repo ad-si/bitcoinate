@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>Bitcoinate Test</title>
+    <script src=../bitcoinate.min.js></script>
+    <style media=screen>
+      main {
+        font-family: sans-serif;
+        width: 20em;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Bitcoinate Test</h1>
+
+      <h2>Large Button</h2>
+      <button
+        class=bitcoinate
+        data-size=50
+        data-address=1LFk8i74MTBEKfViAfvKsbX4mG2iFfRiBF>bitcoinate</button>
+
+      <h2>Medium Button</h2>
+      <button
+        class=bitcoinate
+        data-size=30
+        data-address=1LFk8i74MTBEKfViAfvKsbX4mG2iFfRiBF>bitcoinate</button>
+
+      <h2>Small Button</h2>
+      <button
+        class=bitcoinate
+        data-size=20
+        data-address=1LFk8i74MTBEKfViAfvKsbX4mG2iFfRiBF>bitcoinate</button>
+
+      <h2>Button with Bitcoin URI</h2>
+      <button
+        class=bitcoinate
+        data-size=30
+        data-address=1LFk8i74MTBEKfViAfvKsbX4mG2iFfRiBF
+        data-type=URI
+        data-amount=0.01
+        data-label=bitcoinate.org
+        data-message="Donation to Adrian Sieber for bitcoinate.org">
+        bitcoinate
+      </button>
+
+    </main>
+  </body>
+</html>
