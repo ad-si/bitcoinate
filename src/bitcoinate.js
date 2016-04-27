@@ -1,6 +1,8 @@
 //bitcoinate {{ VERSION }} by Adrian Sieber (adriansieber.com)
 
 ((window, document) => {
+  'use strict'
+
   const style = document.createElement('style')
 
   style.type = 'text/css'

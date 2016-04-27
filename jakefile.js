@@ -1,11 +1,11 @@
 /*global desc, task*/
 
-'use strict'
-
 const fs = require('fs')
 const uglify = require('uglify-js')
 const stylus = require('stylus')
 const nib = require('nib')
+const Console = require('console').Console
+const log = new Console(process.stdout, process.stderr)
 
 function buildMinifiedCss (string) {
 
@@ -36,13 +36,13 @@ function buildMinifiedJs (string) {
   ast.mangle_names()
 
   return ast.print_to_string({
-    'comments': /bitcoinate/,
+    'comments': /bitcoinate/
   })
 }
 
 
 desc('Default build process')
-task('default', ['bitcoinate.min.js',], () => {})
+task('default', ['bitcoinate.min.js'], () => {})
 
 
 desc('Compile bitcoinate.min.js')
@@ -72,7 +72,7 @@ task('bitcoinate.min.js', [], () => {
 
   fs.writeSync(file, jsString)
 
-  console.log('Building ' + this.name + ' succeeded')
+  log.info('Building ' + this.name + ' succeeded')
 })
 
 
@@ -86,7 +86,7 @@ task('bitcoinate.min.css', [], () => {
 
   fs.writeSync(file, buildMinifiedCss(stylString))
 
-  console.log('Building ' + this.name + ' succeeded')
+  log.info('Building ' + this.name + ' succeeded')
 })
 
 
@@ -94,10 +94,10 @@ desc('Remove compiled files')
 task('clean', [], () => {
 
   fs.unlink('bitcoinate.min.js', err => {
-    if (err) console.error(err)
+    if (err) log.error(err)
   })
 
   fs.unlink('bitcoinate.min.css', err => {
-    if (err) console.error(err)
+    if (err) log.error(err)
   })
 })
