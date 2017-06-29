@@ -1,4 +1,4 @@
-#bitcoinate
+# Bitcoinate
 
 [Bitcoinate](http://bitcoinate.org) helps you to get supported by providing a simple,
 appealing and secure solution to receive bitcoin Donations.
@@ -22,7 +22,7 @@ The bitcoinate button is available in three different sizes
 * large
 
 
-##Contribution
+## Contribution
 
 If you like the Idea of this website, please help me to spread the word
 and to establish bitcoinate as a trusted and popular way to receive support for your work.
