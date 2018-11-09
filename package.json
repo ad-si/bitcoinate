@@ -9,7 +9,7 @@
   },
   "eslintConfig": {
     "root": true,
-    "extends": "./node_modules/javascript-styleguide/.eslintrc.yml"
+    "extends": "./node_modules/javascript-styleguide/.eslintrc.yaml"
   },
   "devDependencies": {
     "eslint": "^2.8.0",
